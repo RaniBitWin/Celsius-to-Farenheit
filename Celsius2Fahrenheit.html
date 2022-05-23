@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Conversão de Temperatura</h2>
+<p>Converta Celsius (ºC) para Farenheit (ºF) e vice-versa</p>
+<label for="temperature">Temperatura</label>
+<input id="temperature" type="number" placeholder="insira uma temperatura">
+<select id="unit">
+	<option value=''>Selecione a unidade</option>
+	<option value='Celsius'>ºC</option>
+	<option value='Farenheit'>ºF</option>
+</select>
+<button onclick="celsiusToFarenheit()" >Converter</button>
+<p id="conversion"></p>
+
+<script>
+let temperature = document.getElementById("temperature");
+let unit = document.getElementById("unit");
+let conversion = '';
+
+function celsiusToFarenheit(){
+
+  if(unit.value == 'Farenheit') {   
+      conversion = (temperature.value - 32) * 5/9;
+      document.getElementById("conversion").innerHTML = `A temperatura em Celsius é: ${conversion.toFixed(2)} ºC`;
+    }else if(unit.value == 'Celsius'){
+      conversion = temperature.value * 9/5 + 32;
+      document.getElementById("conversion").innerHTML = `A temperatura em Farenheit é: ${conversion.toFixed(2)} ºF`;
+	}else{
+	  document.getElementById("conversion").innerHTML ="Por favor, selecione uma unidade."
+	}
+}
+
+</script>
+</body>
+</html>
